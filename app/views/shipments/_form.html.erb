@@ -1,0 +1,52 @@
+<%= form_for(shipment) do |f| %>
+  <% if shipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(shipment.errors.count, "error") %> prohibited this shipment from being saved:</h2>
+
+      <ul>
+      <% shipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sendername, "Sender's Name" %>
+    <%= f.text_field :sendername %>
+  </div>
+
+  <div class="field">
+    <%= f.label :receivername, "Receiver's Name" %>
+    <%= f.text_field :receivername %>
+  </div>
+
+  <div class="field">
+    <%= f.label :originlocation, "Shipped From" %>
+    <%= f.text_field :originlocation %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trackingnumber, 'Tracking Number' %>
+    <%= f.text_field :trackingnumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label :destination, "Destination Country" %>
+    <%= f.text_field :destination %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status, "Shipment Status" %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lastscan, "Current/Last Known Location" %>
+    <%= f.text_field :lastscan %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

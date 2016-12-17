@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shipments</h1>
+<% if @shipments.blank? %>
+  <h4>There are no shipment containing the term <%= params[:search] %>.</h4>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Sender's Name</th>
+      <th>Receiver's Name</th>
+      <th>Shipped From</th>
+      <th>Tracking Number</th>
+      <th>Destination</th>
+      <th>Status</th>
+      <th>Current / Last Known Location</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shipments.each do |shipment| %>
+      <tr>
+        <td><%= shipment.sendername %></td>
+        <td><%= shipment.receivername %></td>
+        <td><%= shipment.originlocation %></td>
+        <td><%= shipment.trackingnumber %></td>
+        <td><%= shipment.destination %></td>
+        <td><%= shipment.status %></td>
+        <td><%= shipment.lastscan %></td>
+        <td><%= link_to 'Show', shipment %></td>
+        <td><%= link_to 'Edit', edit_shipment_path(shipment) %></td>
+        <td><%= link_to 'Destroy', shipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shipment', new_shipment_path %>

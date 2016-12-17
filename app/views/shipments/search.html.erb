@@ -1,0 +1,18 @@
+
+
+<h1>Shipments</h1>
+
+
+    <% @shipments.each do |shipment| %>
+    <p>  <strong>Sender's Name: </strong> <%= shipment.sendername %> </p>
+    <p>  <strong>Recipient's Name: </strong> <%= shipment.receivername %> </p>
+    <p>  <strong>Shipped From: </strong> <%= shipment.originlocation %> </p>
+    <p>  <strong>Tracking Number: </strong> <%= shipment.trackingnumber %></p>
+    <p>  <strong>Destination: </strong> <%= shipment.destination %></p>
+    <p>  <strong>Status: </strong> <%= shipment.status %></p>
+    <p>  <strong>Current/Last Known Location:</strong> <%= shipment.lastscan %></p>
+
+    <% end %>
+
+<br>
+<%= link_to 'Track Another Package', track_path, class: "btn btn-success" %> |  <%= link_to 'Exit & Return to Home', root_path, class: "btn btn-default" %>
