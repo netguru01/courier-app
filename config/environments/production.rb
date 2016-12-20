@@ -19,9 +19,11 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
+  config.serve_static_assets = false # 1
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
-
+  config.assets.compress = true # 2
+  config.assets.digest = true # 3
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
